@@ -1,5 +1,6 @@
 package nz.co.pfr.art.Music.service;
 
+import nz.co.pfr.art.Music.entities.Artist;
 import nz.co.pfr.art.Music.entities.ArtistRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,5 +58,8 @@ public class ArtistService {
         return mostProductiveArtists.subList(0, topn);
     }
 
+    public List<Artist> findAllArtists() {
+        return artistRepository.findAll();
+    }
 
 }

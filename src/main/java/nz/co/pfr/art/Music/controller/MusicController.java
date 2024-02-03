@@ -14,16 +14,17 @@ import java.util.List;
 public class MusicController {
     private final ArtistService artistService;
     Logger log = LoggerFactory.getLogger(MusicController.class);
+
     public MusicController(ArtistService artistService) {
         this.artistService = artistService;
     }
 
     @GetMapping(value = "/artists/mostProductive")
-    public ResponseEntity<List<String>> mostProductiveArtists(@RequestParam(name = "topn", defaultValue = "1") Integer topn) {
+    public ResponseEntity<List<String>> mostProductiveArtists(
+            @RequestParam(name = "topn", defaultValue = "1") Integer topn) {
         log.info("getting top {} most productive artists", topn);
         return ResponseEntity.ok(artistService.getMostProductiveArtists(topn));
 
     }
-
 
 }
